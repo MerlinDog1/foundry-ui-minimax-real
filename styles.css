@@ -1,0 +1,26 @@
+:root{--bg:#090b11;--card:#111523;--ink:#e9ecff;--muted:#8d94b8;--accent:#7a8cff;}
+*{box-sizing:border-box;font-family:Inter,system-ui,-apple-system,sans-serif}
+body{margin:0;background:radial-gradient(circle at 20% 10%,#171d33 0,#090b11 40%,#06070d 100%);color:var(--ink)}
+.app{max-width:980px;margin:0 auto;padding:14px;display:grid;gap:14px}
+header h1{margin:0;font-size:1.35rem} header span{color:var(--accent)} header p{margin:.2rem 0;color:var(--muted)}
+.panel{background:linear-gradient(180deg,#151a2d,#0f1322);border:1px solid #232a47;border-radius:14px;padding:12px}
+textarea{width:100%;min-height:120px;background:#0d1120;color:#fff;border:1px solid #2a335b;border-radius:10px;padding:10px}
+button,.chip,select,input[type=file]{background:#1a2040;color:#fff;border:1px solid #32407c;border-radius:10px;padding:9px 10px;text-decoration:none}
+button.primary{background:linear-gradient(135deg,#6d7bff,#8c6fff);border:none;width:100%;font-weight:700}
+button.ghost{background:#10162a}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0}.split>*{flex:1}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chip.active{outline:2px solid var(--accent)}
+.hidden{display:none}
+.style-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;width:100%}
+.style{padding:8px;border-radius:12px;background:#0d1120;border:1px solid #2a335b}
+.style.active{outline:2px solid var(--accent)}
+.swatch{height:56px;border-radius:8px;background:repeating-linear-gradient(45deg,#e9ecff 0 2px,#0b0e18 2px 5px)}
+.progress{height:10px;background:#0d1120;border:1px solid #2a335b;border-radius:20px;overflow:hidden}
+#bar{height:100%;width:0;background:linear-gradient(90deg,#5ce1ff,#8f7bff);transition:.3s}
+.preview-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+figure{margin:0;background:#0d1120;border:1px solid #2a335b;border-radius:12px;padding:8px}
+figcaption{font-size:.8rem;color:var(--muted);margin-bottom:6px}img,object{width:100%;height:160px;object-fit:contain;background:#05060b;border-radius:8px}
+.library{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.lib{padding:8px;background:#0d1120;border:1px solid #2a335b;border-radius:10px}
+.lib img{height:90px}
+#status{font-size:.9rem;color:#b8c0ff;min-height:1.2em}
+@media(min-width:760px){.style-grid{grid-template-columns:repeat(4,1fr)} .preview-grid{grid-template-columns:repeat(4,1fr)} .library{grid-template-columns:repeat(4,1fr)}}

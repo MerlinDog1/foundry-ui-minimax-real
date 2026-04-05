@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foundry MiniMax Real</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Foundry MiniMax <span>REAL</span></h1>
+      <p>Mobile-first 1-bit → vector pipeline</p>
+    </header>
+
+    <section class="panel">
+      <div class="row split">
+        <label><input type="radio" name="source" value="generate" checked> Generate</label>
+        <label><input type="radio" name="source" value="upload"> Upload</label>
+      </div>
+
+      <div id="genWrap">
+        <textarea id="prompt" placeholder="Describe your image..."></textarea>
+        <button id="inspireBtn" class="ghost">Inspire me</button>
+      </div>
+
+      <div id="uploadWrap" class="hidden">
+        <input id="uploadFile" type="file" accept="image/*" capture="environment" />
+      </div>
+
+      <div class="row">
+        <label>Aspect</label>
+        <div class="chips" id="aspectChips">
+          <button data-v="1:1" class="chip active">1:1</button>
+          <button data-v="3:4" class="chip">3:4</button>
+          <button data-v="4:3" class="chip">4:3</button>
+          <button data-v="9:16" class="chip">9:16</button>
+          <button data-v="16:9" class="chip">16:9</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <label>Resolution</label>
+        <div class="chips" id="resChips">
+          <button data-v="1K" class="chip active">1K</button>
+          <button data-v="2K" class="chip">2K</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <label>Style</label>
+        <div id="styleGrid" class="style-grid"></div>
+      </div>
+
+      <div class="row split">
+        <label><input type="checkbox" id="doStyle" checked /> style</label>
+        <label><input type="checkbox" id="doUpscale" checked /> upscale</label>
+        <label><input type="checkbox" id="doTrace" checked /> trace</label>
+      </div>
+
+      <div class="row split">
+        <label>Speckle <input id="speckle" type="range" min="2" max="8" value="4" /></label>
+        <select id="traceFormat">
+          <option value="svg">SVG</option>
+          <option value="png">PNG</option>
+        </select>
+      </div>
+
+      <button id="runBtn" class="primary">Run Pipeline</button>
+      <div class="progress"><div id="bar"></div></div>
+      <div id="status"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Previews</h2>
+      <div class="preview-grid">
+        <figure><figcaption>Generated</figcaption><img id="pvGenerated"></figure>
+        <figure><figcaption>Styled</figcaption><img id="pvStyled"></figure>
+        <figure><figcaption>Upscaled</figcaption><img id="pvUpscaled"></figure>
+        <figure><figcaption>Traced</figcaption><object id="pvTraced" type="image/svg+xml"></object></figure>
+      </div>
+      <div class="row">
+        <a class="chip" href="/download/traced.svg" target="_blank">Download SVG</a>
+        <a class="chip" href="/download/traced.png" target="_blank">Download PNG</a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="row split">
+        <h2>Library</h2>
+        <button id="zipBtn" class="ghost">Export ZIP</button>
+      </div>
+      <div id="library" class="library"></div>
+    </section>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
